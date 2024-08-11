@@ -43,4 +43,25 @@ public class BookTest {
 
     }
 
+    
+    @Test
+    public void checkborrow()
+    {
+        bookService b = new bookService();
+        bookService a[] = new bookService[2];
+        a[0] = new bookService();
+        a[0].addBook("123", "the neptune", "obama", 2000);
+        a[1] = new bookService();
+        a[1].addBook("345", "the colour", "vikram", 2010);
+
+        Assertions.assertThrows(NullPointerException.class, () ->
+        {
+            b.borrowBook(null);
+
+        });
+        Assertions.assertThrows(NullPointerException.class, () -> {
+            b.borrowBook("ubutm");
+        });
+    }
+
 }
